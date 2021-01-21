@@ -7,29 +7,36 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-
   <div class="container">
-      <div class="todo__wrapper">
+    <h1 class="todo__title">todo list</h1>
+    <div class= "todo__container">
         <div class="header">
-        <h1 class="todo__title">todo list</h1>
         <div class="todo__input">
           <img class="todo__input-checkbox" src="./img/159817.svg" alt="">
-          <input type="text" class="todo__input-inputarea">
+          <form class="form" name="todo" action="">
+            <input type="text" name="todoItem" class="todo__input-inputarea">
+          </form>
         </div>
       </div>
-
+      <div class="todo__list">
         <div class="todo__task">
           <input type='checkbox' class="todo__task-checkbox" name="" id="">
           <div class="todo__task-info">to do smth</div>
         </div>
-
+        <div class="todo__task">
+          <input type='checkbox' class="todo__task-checkbox" name="" id="">
+          <div class="todo__task-info">to do smth</div>
+        </div>
+        <div class="todo__task">
+          <input type='checkbox' class="todo__task-checkbox" name="" id="">
+          <div class="todo__task-info">to do smth</div>
+        </div>
         
-
+      </div>
         <div class="todo__button__block">
-
           <div class="todo__number">
-            <div class="todo__number__number"></div><p class="todo-numbers-title"> items left</p>
-          </div>
+            <div class="todo__number__number"></div><p class="todo-numbers-title"></p>
+            items left</div>
           <div class="todo__button__block-container">
           <button class="todo__button__block-all">all</button>
           <button class="todo__button__block-activetask">active</button>
@@ -39,6 +46,6 @@
       </div>
       </div>
     </div>
-  </div>
+    <script src="./app.js"></script>
 </body>
 </html>
