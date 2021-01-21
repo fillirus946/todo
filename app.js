@@ -3,14 +3,7 @@ const todo = form.elements.todoItem
 const todoList = document.querySelector('.todo__list')
 const counter = document.querySelector('.todo-numbers-title')
 
-todoList.addEventListener('del', deleteItem);
-
-function deleteItem(event){
-    let target = event.target;
-    console.log(target)
-}
-
-
+// todoList.addEventListener('click', deleteItem);
 
 form.addEventListener('submit', enter);
 
@@ -38,13 +31,26 @@ function createElements(text) {
     completeCheckBox.classList.add('todo__task-checkbox')
     completeCheckBox.setAttribute('type', 'checkbox');
 
-    let textOftodo = document.createElement('div')
+    const textOftodo = document.createElement('div')
     textOftodo.innerText = text
     textOftodo.classList.add('todo__task-info')
 
+    const deleteButton = document.createElement('button')
+    deleteButton.classList.add('delete-button')
+
     todoDiv.appendChild(completeCheckBox)
     todoDiv.appendChild(textOftodo)
+    todoDiv.appendChild(deleteButton)
 
     console.log(todoDiv)
 }
+
+// function deleteItem(event){
+//     const item = event.target;
+//     if(item.classList[0] === 'todo__task-delete'){
+//         console.log(item)
+//         item.remove()
+//     }
+//     console.log(target)
+// }
 
