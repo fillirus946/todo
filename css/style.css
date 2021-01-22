@@ -68,7 +68,14 @@ body {
   .todo__task-checkbox {
     margin: 17px; }
   .todo__task-delete {
-    margin-right: 17px; }
+    background-color: white;
+    color: red;
+    margin-right: 17px;
+    opacity: 0.2;
+    transition: 0.4s; }
+  .todo__task-delete:hover {
+    opacity: 0.8;
+    transition: 0.4s; }
 
 .todo__input {
   padding: 16px;
@@ -102,16 +109,37 @@ body {
     background-color: white;
     border: 1px solid #acacac;
     border-radius: 3px;
-    color: #4d4d4d; }
+    color: #4d4d4d;
+    opacity: 0.5;
+    transition: 0.2s; }
+  .todo__button__block-all:hover {
+    opacity: 1;
+    transition: 0.2s; }
   .todo__button__block-activetask {
     background-color: white;
     border-radius: 3px;
     border: 1px solid #acacac;
-    color: #4d4d4d; }
+    color: #4d4d4d;
+    opacity: 0.5;
+    transition: 0.2s; }
+  .todo__button__block-activetask:hover {
+    opacity: 1;
+    transition: 0.2s; }
   .todo__button__block-completed {
     background-color: white;
     border-radius: 3px;
     border: 1px solid #acacac;
-    color: #4d4d4d; }
+    color: #4d4d4d;
+    opacity: 0.5;
+    transition: 0.4s; }
+  .todo__button__block-completed:hover {
+    opacity: 1;
+    transition: 0.2s; }
   .todo__button__block-container {
     margin-right: 16px; }
+
+.todo__number {
+  display: flex;
+  margin: 3px; }
+  .todo__number .todo-number-title {
+    padding-right: 5px; }
