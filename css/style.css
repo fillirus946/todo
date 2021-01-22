@@ -143,3 +143,6 @@ body {
   margin: 3px; }
   .todo__number .todo-number-title {
     padding-right: 5px; }
+
+.line {
+  text-decoration: line-through; }

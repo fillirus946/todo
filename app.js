@@ -2,14 +2,14 @@ const form = document.forms.todo;
 const todo = form.elements.todoItem
 const todoList = document.querySelector('.todo__list')
 const counterHtmlElement = document.querySelector('.todo-number-title')
-
+const sortButtons = document.querySelector('.todo__button__block-container')
 //event listeners
+sortButtons.addEventListener('click', SortHtmlTodoItems)
 todoList.addEventListener('click', deleteItemAndCheckTodo);
 form.addEventListener('submit', formSubmit);
 //global values
 let todoCounter = 0
 const arraylistOfTodos = []
-
 //id generation
 const createRandId = () => {
     return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 10);
@@ -30,7 +30,6 @@ function createNewTodoElement(value, id) {
     if(value != ''){
         arraylistOfTodos.push({
             text: value,
-            checked: false,
             completed: false,
             active: true,
             id: newCreatedId
@@ -39,11 +38,10 @@ function createNewTodoElement(value, id) {
         let todoText = value
         todoList.innerHTML += `<div class="todo__task" id="${id}">
                                                     <input type='checkbox' class="todo__task-checkbox" name="" id="">
-                                                    <div class="todo__task-info">${todoText}</div>
+                                                    <p class="todo__task-info">${todoText}</p>
                                                     <button class="todo__task-delete">X</button>
                                                     </div>`
         todoCounter += 1
-
         counterHtmlElement.textContent = todoCounter
         console.log(counterHtmlElement)
         
@@ -55,22 +53,43 @@ function deleteItemAndCheckTodo(event){
 
     const itemOfTodoHtmlList = event.target;
     const parent = itemOfTodoHtmlList.parentElement
+    const htmlTextTodo = parent.querySelector('.todo__task-info')
     const idOfTodoDiv = parent.getAttribute("id")
 
-    if(itemOfTodoHtmlList.classList[0] === 'todo__task-delete'){
+
+    if(itemOfTodoHtmlList.classList == 'todo__task-delete'){
         parent.remove()
         arraylistOfTodos.splice(idOfTodoDiv)
         todoCounter -= 1
-        console.log(todoCounter)
-
-    }else if(itemOfTodoHtmlList.classList[0] === 'todo__task-checkbox'){
+    }else if(itemOfTodoHtmlList.classList == 'todo__task-checkbox'){
+                parent.classList.toggle('checked')
+                htmlTextTodo.classList.toggle('line')
+                }
         for (let elem of arraylistOfTodos){
             if(elem.id === idOfTodoDiv){
-                elem.checked = true
-                console.log(arraylistOfTodos)
+                elem.completed = true
             }
         }
+}
+
+//sort items of html todo
+
+function SortHtmlTodoItems(event){
+    const itemOfTodoHtmlList = event.target;
+    const checkedElements = document.querySelector('.checked')
+    console.log(checkedElements)
+    if(itemOfTodoHtmlList.classList == 'todo__button__block-all'){
+        console.log('ahow all')
+    }else if(itemOfTodoHtmlList.classList == 'todo__button__block-activetask'){
+        checkedElements.style.visibility = "hidden";
+        checkedElements.style.height = "0px";
+    }else if(itemOfTodoHtmlList.classList == 'todo__button__block-completed'){
+        console.log('show completed')
     }
+
+    
+
+
 }
 
 
