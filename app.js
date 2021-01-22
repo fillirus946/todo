@@ -1,8 +1,10 @@
 const form = document.forms.todo;
 const todo = form.elements.todoItem
+const arrayTodoList = document.querySelectorAll('.todo__list')
 const todoList = document.querySelector('.todo__list')
 const counterHtmlElement = document.querySelector('.todo-number-title')
 const sortButtons = document.querySelector('.todo__button__block-container')
+
 //event listeners
 sortButtons.addEventListener('click', SortHtmlTodoItems)
 todoList.addEventListener('click', deleteItemAndCheckTodo);
@@ -37,10 +39,10 @@ function createNewTodoElement(value, id) {
         let id = newCreatedId
         let todoText = value
         todoList.innerHTML += `<div class="todo__task" id="${id}">
-                                                    <input type='checkbox' class="todo__task-checkbox" name="" id="">
-                                                    <p class="todo__task-info">${todoText}</p>
-                                                    <button class="todo__task-delete">X</button>
-                                                    </div>`
+                                <input type='checkbox' class="todo__task-checkbox" name="" id="">
+                                <p class="todo__task-info">${todoText}</p>
+                                <button class="todo__task-delete">X</button>
+                                </div>`
         todoCounter += 1
         counterHtmlElement.textContent = todoCounter
         console.log(counterHtmlElement)
@@ -63,6 +65,8 @@ function deleteItemAndCheckTodo(event){
         todoCounter -= 1
     }else if(itemOfTodoHtmlList.classList == 'todo__task-checkbox'){
                 parent.classList.toggle('checked')
+                parent.style.visibility = "hidden";
+                parent.style.height = "0px";
                 htmlTextTodo.classList.toggle('line')
                 }
         for (let elem of arraylistOfTodos){
@@ -75,24 +79,26 @@ function deleteItemAndCheckTodo(event){
 //sort items of html todo
 
 function SortHtmlTodoItems(event){
+
     const itemOfTodoHtmlList = event.target;
-    const checkedElements = document.querySelector('.checked')
-    console.log(checkedElements)
+    const checkedElements = document.querySelectorAll('.checked')
+    // const parent = itemOfTodoHtmlList.parentElement
+
     if(itemOfTodoHtmlList.classList == 'todo__button__block-all'){
         console.log('ahow all')
     }else if(itemOfTodoHtmlList.classList == 'todo__button__block-activetask'){
-        checkedElements.style.visibility = "hidden";
-        checkedElements.style.height = "0px";
+        console.log(checkedElements)
+        // parent.classList.toggle('checked')
+        // parent.style.visibility = "hidden";
     }else if(itemOfTodoHtmlList.classList == 'todo__button__block-completed'){
-        console.log('show completed')
+
+        todoList.childNodes.forEach(elem=>{
+            
+        })
+
     }
 
-    
-
-
 }
-
-
 
 
 

@@ -146,3 +146,6 @@ body {
 
 .line {
   text-decoration: line-through; }
+
+.hidden {
+  display: none; }
