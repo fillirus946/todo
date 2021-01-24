@@ -27,7 +27,25 @@ body{
     box-shadow: 0 1px 1px rgba(0,0,0,0.15), 0 10px 0 -5px #eee, 0 10px 1px -4px rgba(0,0,0,0.15), 0 20px 0 -10px #eee, 0 20px 1px -9px rgba(0,0,0,0.15),  0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 .form{ 
-  width: 100%
+  
+  width: 100%;
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(214, 190, 190);
+    opacity: 0.3; /* Firefox */
+    content: "\26B2";}
+  &-search{
+    padding-bottom: 35px;
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: rgb(214, 190, 190);
+      opacity: 0.3; /* Firefox */}
+    .todo__input-search{
+      width: 100%;
+      height: 55px;
+      padding: 16px;
+      
+    }
+    
+  }
 }
 
 .todo__task {
@@ -49,7 +67,6 @@ body{
       color: red;
       margin-right: 17px;
       opacity: 0.2;
-      transition: 0.4s;
     }
     &-delete:hover{
       opacity: 0.8;
@@ -121,7 +138,6 @@ body{
       border: 1px solid rgb(172, 172, 172);
       color: #4d4d4d;
       opacity: 0.5;
-      transition: 0.4s;
     }
     &-completed:hover{
       opacity: 1;
