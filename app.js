@@ -11,14 +11,25 @@ const pictureAddNewTodo = document.querySelector('.todo__input-checkbox')
 const input = document.querySelector('input');
 const log = document.getElementById('log');
 
+
+//event listeners
+sortButtons.addEventListener('click', SortHtmlTodoItems)
+todoList.addEventListener('click', deleteItemAndCheckTodo);
+form.addEventListener('submit', formSubmit);
+pictureAddNewTodo.addEventListener('click', formSubmit);
 searchTodo.addEventListener('keyup', searchTodos);
 searchTodo.addEventListener('blur', loseFocusAfterSearch);
+
+//global values
+let todoCounter = 0
+const arraylistOfTodos = []
+
 //serch todo's by name
 function searchTodos(event) {
     const todoParagText = document.querySelectorAll('.todo__task-info')
     event.preventDefault();
     todoParagText.forEach(elem=>{
-        if(!elem.textContent.includes(searchTodo.value)){
+        if(!elem.textContent.includes(searchTodo.value.toLowerCase())){
                 elem.parentElement.style.visibility = "hidden";
                 elem.parentElement.style.height = "0px";
         }else{
@@ -37,14 +48,6 @@ function loseFocusAfterSearch(event){
         })
 }
 
-//event listeners
-sortButtons.addEventListener('click', SortHtmlTodoItems)
-todoList.addEventListener('click', deleteItemAndCheckTodo);
-form.addEventListener('submit', formSubmit);
-pictureAddNewTodo.addEventListener('click', formSubmit);
-//global values
-let todoCounter = 0
-const arraylistOfTodos = []
 
 //id generation
 const createRandId = () => {
