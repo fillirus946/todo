@@ -13,7 +13,7 @@ const log = document.getElementById('log');
 
 searchTodo.addEventListener('keyup', searchTodos);
 searchTodo.addEventListener('blur', loseFocusAfterSearch);
-
+//serch todo's by name
 function searchTodos(event) {
     const todoParagText = document.querySelectorAll('.todo__task-info')
     event.preventDefault();
@@ -27,7 +27,7 @@ function searchTodos(event) {
         }
     })
 }
-
+// show all finded todo's
 function loseFocusAfterSearch(event){
     event.preventDefault();
     const allElements = document.querySelectorAll('.todo__task')
@@ -61,8 +61,9 @@ function formSubmit(event) {
 
 //creating new todo div and embed it in our code
 function createNewTodoElement(value, id) {
+
     let newCreatedId = id
-    if(value != ''){
+    if(value != false){
         arraylistOfTodos.push({
             text: value,
             completed: false,
