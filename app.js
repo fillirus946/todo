@@ -29,7 +29,7 @@ function searchTodos(event) {
     const todoParagText = document.querySelectorAll('.todo__task-info')
     event.preventDefault();
     todoParagText.forEach(elem=>{
-        if(!elem.textContent.includes(searchTodo.value.toLowerCase())){
+        if(!elem.textContent.toLowerCase().includes(searchTodo.value.toLowerCase())){
                 elem.parentElement.style.visibility = "hidden";
                 elem.parentElement.style.height = "0px";
         }else{
